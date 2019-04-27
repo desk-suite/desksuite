@@ -1,0 +1,47 @@
+{
+  "name": "desksuite",
+  "version": "0.0.19042701",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desk-suite/desksuite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/desk-suite/desksuite/issues"
+  },
+  "homepage": "https://github.com/desk-suite/desksuite#readme",
+  "dependencies": {
+    "element-ui": "^2.8.2",
+    "firebase": "^5.10.1",
+    "typescript": "^3.4.5",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6",
+    "vuex": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
