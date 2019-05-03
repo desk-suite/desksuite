@@ -1,19 +1,20 @@
 import firebase = require( "firebase/app" );
 import _Vue from 'vue';
+import ApplicationConfig from './applicationConfig';
 import Modules from './modules';
 
 export class DeskSuite {
   public Modules: Modules;
   
-  constructor(app: firebase.app.App)
-  {
-    this.Modules = new Modules(app);
+  constructor(appConfig: ApplicationConfig)
+  {    
+    appConfig.firebase = firebase.initializeApp(appConfig.firebaseConfig);
+    this.Modules = new Modules(appConfig);
   }
 }
 
 export default function (Vue: typeof _Vue, options?: any): void {
  
-    const firebaseApp = firebase.initializeApp(options.config);
-    const deskSuite = new DeskSuite(firebaseApp);
+    const deskSuite = new DeskSuite(options);
     Vue.prototype.$DeskSuite = deskSuite;
 }
