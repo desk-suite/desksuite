@@ -1,15 +1,14 @@
-import firebase = require( "firebase/app" );
 import _Vue from 'vue';
 import ApplicationConfig from './applicationConfig';
-import Modules from './modules';
+import { State } from './store';
 
 export class DeskSuite {
-  public Modules: Modules;
   
-  constructor(appConfig: ApplicationConfig)
+  constructor(appConfig: any)
   {    
-    appConfig.firebase = firebase.initializeApp(appConfig.firebaseConfig);
-    this.Modules = new Modules(appConfig);
+    // appConfig.firebase = firebase.initializeApp(appConfig.firebaseConfig);
+    // this.Modules = new Modules(appConfig);
+    new State(appConfig.store)
   }
 }
 
