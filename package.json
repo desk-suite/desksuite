@@ -1,8 +1,8 @@
 {
   "name": "desksuite",
-  "version": "0.0.19042701",
+  "version": "0.0.19051005",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest --config jestconfig.json --detectOpenHandles",
     "build": "tsc",
